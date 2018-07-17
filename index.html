@@ -9,8 +9,8 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy" type="text/css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300" type="text/css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Parisienne" rel="stylesheet">
-		
-		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>		
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+		<script src="script.js"></script>
 	</head>
 	<body>
 	<header>
@@ -23,7 +23,6 @@
 				<li class="menu"><a class="portfolio-link" href="#portfolio">Portfolio</a></li>
 				<li class="menu"><a class="contact-link" href="#contact">Contact</a></li>
 			</ul>
-
 		</nav>
 	</header>
 
@@ -50,7 +49,7 @@
 			<h3 class="section-header">My skills</h3>
 			<div class="passions">
 				<h2>Coding and graphics</h2>
-				<p>My ultimate goal is to master CSS (+LESS), JavaScript (+frameworks and libraries such as Angular.js or jQuery) and Responsive Web Design, as well as be able to, at least, prepare graphics for web pages in Photoshop. Apart from that, I always try to gain knowledge of other related fields to become a proficient front-end developer.</p></div>
+				<p>My ultimate goal is to master CSS (+Sass/Less), JavaScript (+React.js) and Responsive Web Design, as well as be able to, at least, prepare graphics for web pages. Apart from that, I always try to gain knowledge of other related fields to become a proficient front-end developer.</p></div>
 			<div class="passions">
 				<h2>Translation and writing</h2>
 				<p>Learning foreign languages is my other passion, that's why I've finished translation studies (English <-> Polish, German -> Polish). As I am fond of some IT fields, I translate, write and correct IT texts from time to time. It's also not unusual to see me read and listen to podcasts in German and French or try to pick up other languages.</p></div>
@@ -81,11 +80,8 @@
 
 		<section id="courses">
 			<h2>Courses and Certificates</h2>
-
 			<p>I've completed the <a href="https://www.udemy.com/complete-web-developer-course/" class="links">Complete Web Developer Course</a> on Udemy, paying particular attention to the frontend material. This course features topics such as: HTML, CSS, JavaScript, jQuery, Twitter Bootstrap, Wordpress, PHP, MySQL, APIs and mobile apps</strong>.</p>
-
 			<img id="course-certificate" src="images/course-certificate.jpg" alt="The Complete Web Developer Course certificate of completion">
-
 			<p>I'm also doing the frontend-related parts of the <a href="https://www.freecodecamp.com/" class="links">Free Code Camp</a> course, now focusing on object oriented programming and algorithm scripting.</p>
 			<p>Moreover, I do various projects, tutorials and exercises, as well as read books dealing with various technologies and programming languages.</p>
 		</section>
@@ -154,7 +150,6 @@
 		</section>
 		</div>
 
-
 		<footer>
 			<div id="footer">
 				<a href="" class="links">Main page</a> |
@@ -170,84 +165,5 @@
 				</address>
 			</div>
 		</footer>
-		
-		<script>
-			// links active
-
-			$("#portfolio-link").on("click", function() {
-				$("nav > ul > li").css("background", "#32b734;");
-			});
-
-			// portfolio - h4 and p appear on hover
-			$("#old-portfolio, #drag-and-drop, #smooth-transitions, #code, #bootstrap, #drumkit").mouseover(function() {
-				$(".project-description", this).css("visibility", "visible"); /// !!! :)))
-			});
-
-			$("#old-portfolio, #drag-and-drop, #smooth-transitions, #code, #bootstrap, #drumkit").mouseout(function() {
-				$(".project-description", this).css("visibility", "hidden");
-			});
-
-
-			// display: none - sections
-
-			$(".skills-link").on("click", function() {
-				$("#coding, #courses, #passions").css("display", "block");
-				$("#home, #portfolio, #contact").css("display", "none");
-			});
-
-			$(".portfolio-link").on("click", function() {
-				$("#portfolio").css("display", "block");
-				$("#home, #coding, #courses, #passions, #contact").css("display", "none");
-			});
-
-			$(".contact-link").on("click", function() {
-				$("#contact").css("display", "block");
-				$("#home, #coding, #courses, #passions, #portfolio").css("display", "none");
-			});
-
-			// FORM
-
-			$("form").submit(function(event) {
-				var errorMessage = "";
-
-				event.preventDefault();
-
-				if ($("#name").val() == "") {
-					errorMessage = errorMessage + "Please enter your name <br/>";
-					$("#error").css("visibility", "visible");
-				}
-
-				function isValidEmailAddress(emailAddress) {
-					var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
-					return pattern.test(emailAddress);
-				}
-
-				if ($("#email").val() == "") {
-					errorMessage = errorMessage + "Please enter your email address <br/>";
-					$("#error").css("visibility", "visible");
-				}
-
-				if (!isValidEmailAddress($("#email").val()) && $("#email").val() != "") {
-					errorMessage = errorMessage + "Please enter a valid email address <br/>";
-					$("#error").css("visibility", "visible");
-				}
-
-				if ($("#message").val() == "") {
-					errorMessage = errorMessage + "Please enter your message";
-					$("#error").css("visibility", "visible");
-				}
-
-				if (errorMessage == "") {
-					$("#error").css("color", "green");
-					$("#error").css("border", "1px solid green");
-					$("#error").html("Your message was sent.");
-					$("#error").css("visibility", "visible");
-					$(".inputs").val("");
-				} else {
-					$("#error").html(errorMessage);
-				}
-			});
-			
-		</script>
 	</body>
 </html>
