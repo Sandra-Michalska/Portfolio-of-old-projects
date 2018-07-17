@@ -1,0 +1,104 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 600;
+	color: #333333;
+}
+
+#menuBar {
+	width: 100%;
+	height: 50px;
+	background-color: lightgreen;
+	border-bottom: 1px solid lightgrey;
+}
+
+#instruction {
+	padding: 15px 0 0 20px;
+	font-size: 1.2em;
+	float: left;
+}
+
+#buttonDiv {
+	padding: 11px 20px 0 0;
+	float: right;
+}
+
+#runButton {
+	font-size: 1em;
+	font-weight: 600;
+	color: #333333;
+	border: 1px solid grey;
+	border-radius: 4px;
+	padding: 4px 5px;
+	background-color: lightgrey;
+}
+
+#toggles {
+	width: 300px;
+	margin: 0 auto;	
+	list-style: none;
+	border: 1px solid grey;
+	border-radius: 4px;
+	height: 35px;
+	font-size: 1.4em;
+	padding: 0 0 0 8px;
+	position: relative;
+	top: 7px;
+	background-color: lightgrey;
+}
+
+#toggles li {
+	float: left;
+	padding: 5px 8px;
+	border-right: 1px solid grey;
+}
+
+.clear {
+	clear: both;
+}
+
+.codeContainer {
+	height: 100%;
+	width: 50%;
+	float: left;
+	position: relative;
+}
+
+textarea {
+	width: 100%;
+	height: 100%;
+	border: none;
+	border-right: 1px solid grey;
+	font-family: monospace;
+	font-size: 1.1em;
+	box-sizing: border-box;
+	padding: 7px; 
+	resize: none;
+}
+
+.codeLabel {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	font-size: 1.25em;
+}
+
+#CSSContainer, 
+#JSContainer {
+	display: none;
+}
+
+iframe {
+	height: 100%;
+	width: 97%;
+	position: relative;
+	left: 5px;
+	border: none;
+}
+
+.selected {
+	background-color: darkgray;
+	height: 25px; /* ? */
+}
+

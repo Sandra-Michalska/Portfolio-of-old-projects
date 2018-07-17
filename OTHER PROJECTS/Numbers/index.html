@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	
+	<title>Numbers for children with drag and drop</title>
+	
+	<link rel="stylesheet" href="styles.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+</head>
+
+<!-- BODY -->
+<body> 
+
+	<div class="box">
+		<h1>Numbers for children with drag and drop</h1>
+		<h2>A little game created in jQuery</h2>
+	</div>	
+	<div id="content">
+		<div id="cards"> </div>
+		<div id="slots"> </div>
+		
+		<div id="success">
+			<h3>Very well!</h3>
+			<button onclick="init()">Play again</button>
+		</div>
+	</div>
+	<div class="box">
+		<p>Based on a tutorial and modified by me</p>
+	</div>
+	
+	<!-- SCRIPT -->
+	<script>
+		var correctCards = 0;
+		$(init);
+
+		// THE INIT FUNCTION
+		function init() {
+			$("#success").hide();
+			$("#success").css( {
+				left: "650px",
+				top: "320px",
+				width: 0,
+				height: 0
+			} );
+
+			correctCards = 0;
+			$("#cards").html("");
+			$("#slots").html("");
+
+			var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+			numbers.sort( function() {
+				return Math.random() - .5 
+			});
+
+			for (var i = 0; i < 10; i++) {
+				$("<div>" + numbers[i] + "</div>").data("number", numbers[i]).attr("id", "card" + numbers[i]).appendTo("#cards").draggable( {
+					containment: "#content",
+					stack: "#cards div",
+					cursor: "move",
+					revert: true
+				});
+			}
+
+			var words = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
+			for (var i = 1; i <= 10; i++) {
+				$("<div>" + words[i-1] + "</div>").data("number", i).appendTo("#slots").droppable( {
+					accept: "#cards div",
+					hoverClass: "hovered",
+					drop: handleCardDrop
+				});
+			}
+		}
+
+		// THE HANDLECARDDROP FUNCTION
+		function handleCardDrop(event, ui) {
+			var slotNumber = $(this).data("number"); 
+			var cardNumber = ui.draggable.data("number");
+
+			if (slotNumber == cardNumber) {
+				ui.draggable.addClass("correct");
+				ui.draggable.draggable("disable");
+				$(this).droppable("disable");
+				ui.draggable.position({ of: $(this), my: "left top", at: "left top" });
+				ui.draggable.draggable("option", "revert", false);
+				correctCards++;
+			}
+
+			if (correctCards == 10) {
+				$("#success").show();
+				$("#success").animate( {
+					left: "700px",
+					top: "350px",
+					width: "300px",
+					height: "100px",
+					opacity: 1	
+				});
+			
+			}
+		}
+	</script>
+</body>

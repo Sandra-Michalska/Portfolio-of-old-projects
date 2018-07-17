@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Write your code and see the result</title>
+	<link rel="stylesheet" href="styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+</head>
+<body>
+	<div id="wrapper">
+		<div id="menuBar">
+			<div id="instruction">
+				Write your code in HTML and CSS and then run it!
+			</div>
+			<div id="buttonDiv">
+				<button id="runButton" type="button">Run the code</button>
+			</div> 
+			<ul id="toggles">
+				<li class="toggle selected">HTML</li>
+				<li class="toggle">CSS</li>
+				<li class="toggle">JS</li>
+				<li class="toggle selected" style="border: none">RESULT</li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+
+		<div class="codeContainer" id="HTMLContainer">
+			<div class="codeLabel">HTML</div>
+			<textarea id="htmlCode" placeholder="Type your HTML code here :)"></textarea>	
+		</div>
+		
+		<div class="codeContainer" id="CSSContainer">
+			<div class="codeLabel">CSS</div>
+			<textarea id="cssCode" placeholder="Type your CSS code here :)"></textarea>		
+		</div>
+
+		<div class="codeContainer" id="JSContainer">
+			<div class="codeLabel">JS</div>
+			<textarea id="jsCode" id="security">JS code is disabled due to security issues</textarea>	<!-- js code removed -->
+		</div>
+
+		<div class="codeContainer" id="RESULTContainer">
+			<div class="codeLabel">RESULT</div>
+			<iframe></iframe>
+		</div>
+	</div>
+<script>
+
+	// calculating the height of the codeContainer
+	var windowHeight=$(window).height();
+	var menuBarHeight=$("#menuBar").height();
+	
+	var codeContainerHeight=windowHeight-menuBarHeight;
+
+	$(".codeContainer").height(codeContainerHeight+"px");
+
+
+	// toggling 
+	$(".toggle").click(function() {
+		$(this).toggleClass("selected");
+		var activeDivText = $(this).html();
+		$("#" + activeDivText + "Container").toggle();
+	
+	
+	// function calculating the active divs
+		var showingDivs = $(".codeContainer").filter(function() {
+			return($(this).css("display") != "none");
+		}).length;
+		
+		
+	// checking the width of a div
+		var width = 100/showingDivs;
+		$(".codeContainer").width(width+"%");
+	}); 
+
+
+	// running the code in the iframe 
+	$("#runButton").click(function() {
+		$("iframe").contents().find("html").html('<style>' + $("#cssCode").val() + '</style>' + $("#htmlCode").val());
+	});
+	
+</script>
+</body>
+</html>

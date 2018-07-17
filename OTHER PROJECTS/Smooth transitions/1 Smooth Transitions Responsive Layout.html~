@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smooth Transitions Responsive Layout</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Slab:400,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div id="container"> <!-- CONTAINER -->
+        
+        <input type="radio" name="tab" checked="checked" id="tab_1"/>
+        <a href="#panel_1">Serendipity</a>
+
+        <input type="radio" name="tab" id="tab_2"/>
+        <a href="#panel_2">Happiness</a>
+
+        <input type="radio" name="tab" id="tab_3"/>
+        <a href="#panel_3">Tranquillity</a>
+
+        <input type="radio" name="tab" id="tab_4"/>
+        <a href="#panel_4">Positivity</a>
+
+        <input type="radio" name="tab" id="tab_5"/>
+        <a href="#panel_5">Passion</a>
+
+    <!-- <div class="top">
+            <a href="http://tympanus.net/Tutorials/CSS3ImageAccordion/" class="links_top"><p id="text_left">« PREVIOUS DEMO: <span>IMAGE ACCORDION WITH CSS3</span></p></a>
+
+            <a href="http://tympanus.net/codrops/2012/06/12/css-only-responsive-layout-with-smooth-transitions/" class="links_top"><p id="text_right">BACK TO THE CODROPS ARTICLE</p></a>
+
+            <img src="images/triangle_flake.png" alt="flake">
+
+    -->
+    	<div class="panels">
+            <section class="panel" id="panel_1"> <!-- SECTIONS -->
+                <div class="glyph" data-icon="H"></div> <!-- GLYPHS!!! -->
+                <h2>Serendipity</h2>
+                <p>Banksy adipisicing eiusmod banh mi sed. Squid stumptown est odd future nisi, commodo mlkshk pop-up adipisicing retro.</p>
+            </section>
+
+             <section class="panel color" id="panel_2">
+                <div class="glyph" data-icon="1"></div>
+			    <h2>Happiness</h2>
+				<p>Art party readymade beard labore cosby sweater culpa. Art party whatever incididunt, scenester umami polaroid tofu.</p>
+            </section>
+
+            <section class="panel" id="panel_3">
+                <div class="glyph" data-icon="B"></div>
+                <h2>Tranquillity</h2>
+                <p>Sint aute occaecat id vice. Post-ironic fap pork belly next level godard, id fanny pack williamsburg forage truffaut.
+                Sint aute occaecat id vice. Post-ironic fap pork belly next level godard, id fanny pack williamsburg forage truffaut.
+                Sint aute occaecat id vice. Post-ironic fap pork belly next level godard, id fanny pack williamsburg forage truffaut.Sint aute occaecat id vice. Post-ironic fap pork belly next level godard, id fanny pack williamsburg forage truffaut.Sint aute occaecat id vice. Post-ironic fap pork belly next level godard, id fanny pack williamsburg forage truffaut.Sint aute occaecat id vice. Post-ironic fap pork belly next level godard, id fanny pack williamsburg forage truffaut.Sint aute occaecat id vice. Post-ironic fap pork belly next level godard, id fanny pack williamsburg forage truffaut.Sint aute occaecat id vice. Post-ironic fap pork belly next level godard, id fanny pack williamsburg forage truffaut.Sint aute occaecat id vice. Post-ironic fap pork belly next level godard, id fanny pack williamsburg forage truffaut.t aute occaecat id vice. Post-ironic fap pork belly next level godard, id fanny pack williamsburg forage truffaut.
+                Sint aute occaecat id vice. Post-ironic fap pork belly next level godard, id fanny pack williamsburg forage truffaut.
+                Sint aute occaecat id vice. Post-ironic fap pork belly next level godard, id fanny pack williamsburg forage truffaut.Sint aute occaecat id vice. Post-ironic fap pork belly next level godard, id fanny pack williamsburg forage truffaut.Sint aute occaecat id vice. Post-ironic fap pork belly next level godard, id fanny pack williamsburg forage truffaut.Sint aute occaecat id vice. Post-ironic fap pork belly next level godard, id fanny pack williamsburg forage truffaut.Sint aute occaecat id vice. Post-ironic fap pork belly next level godard, id fanny pack williamsburg forage truffaut.Sint aute occaecat id vice. Post-ironic fap pork belly next level godard, id fanny pack williamsburg forage truffaut.Sint aute occaecat id vice. Post-ironic fap pork belly next level godard, id fanny pack williamsburg forage truffaut.</p>
+            </section>
+
+            <section class="panel color" id="panel_4">
+                <div class="glyph" data-icon="x"></div>
+                <h2>Positivity</h2>
+                <p>Mixtape fap leggings art party, butcher authentic farm-to-table you probably haven't heard of them do labore cosby sweater.</p>
+            </section>
+
+            <section class="panel" id="panel_5">
+                <div class="glyph" data-icon="Ç"></div>
+                <h2>Passion</h2>
+                <p>Fixie ad odd future polaroid dreamcatcher, nesciunt carles bicycle rights accusamus mcsweeney's mumblecore nulla irony.</p>
+            </section>
+        </div> <!-- END OF PANELS -->    
+    </div> <!-- END OF CONTAINER -->
+</body>
+</html>

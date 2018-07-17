@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CODE HANDLER</title>
+	<link rel="stylesheet" href="styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+</head>
+<body>
+	<div id="wrapper"> <!-- contains the whole page -->
+		<div id="menuBar">
+			<div id="logo">
+				Code Handler xD
+			</div>
+			<div id="buttonDiv">
+				<button id="runButton" type="button">Run the code</button>
+			</div> 
+			<ul id="toggles">
+				<li class="toggle selected">HTML</li>
+				<li class="toggle">CSS</li>
+				<li class="toggle">JS</li>
+				<li class="toggle selected" style="border: none">RESULT</li> <!-- border: none!!! -->
+			</ul>	<!-- the logo, buttonDiv and menu ids should be in this order!!! otherwise there are problems with the position of the buttonDiv -->
+		</div>
+		<div class="clear"></div> <!-- clear floats! -->
+
+		<div class="codeContainer" id="HTMLContainer">
+			<div class="codeLabel">HTML</div>
+			<textarea id="htmlCode">Type your HTML code here :)</textarea>	
+		</div>
+		
+		<div class="codeContainer" id="CSSContainer">
+			<div class="codeLabel">CSS</div>
+			<textarea id="cssCode">Type your CSS code here :)</textarea>		
+		</div>
+
+		<div class="codeContainer" id="JSContainer">
+			<div class="codeLabel">JS</div>
+			<textarea id="jsCode" id="security">JS code is disabled due to security issues</textarea>	<!-- the id doesn't work -->
+		</div>
+
+		</div>
+
+		<div class="codeContainer" id="RESULTContainer">
+			<div class="codeLabel">RESULT</div>
+			<iframe></iframe> <!-- the result will be in the iframe :) -->	
+		</div>
+	</div>
+<script>
+	// calculating the height of the codeContainer
+	var windowHeight=$(window).height();  // learn this!
+	var menuBarHeight=$("#menuBar").height();
+	
+	var codeContainerHeight=windowHeight-menuBarHeight;
+
+	$(".codeContainer").height(codeContainerHeight+"px");
+
+	// toggling 
+	$(".toggle").click(function() {
+		$(this).toggleClass("selected"); // toggle whether or not .selected is applied
+		var activeDivText = $(this).html(); // contains the text in the li's!
+		$("#" + activeDivText + "Container").toggle(); // the right div appears when .toggle is clicked
+	
+	// function calculating the active divs
+		var showingDivs = $(".codeContainer").filter(function() {
+			return($(this).css("display") != "none");
+		}).length;
+		
+		// Checking the width of a div
+		var width = 100/showingDivs;
+		$(".codeContainer").width(width+"%");
+	}); 
+
+	// Running the code in the iframe 
+	// Changing the contents of the iframe to the html and css result when the run button is clicked
+	$("#runButton").click(function() {
+		$("iframe").contents().find("html").html('<style>' + $("#cssCode").val() + '</style>' + $("#htmlCode").val());
+	});
+	
+	//eval fction etc.!
+	// document.getElementById("resultFrame").contentWindow.eval($("#jsCode").val());
+	// resultFrame = id of the iframe
+ 	
+</script>
+</body>
+</html>
