@@ -235,6 +235,10 @@ h2 {
 	margin: 50px 0 40px;
 }
 
+#contact p {
+	text-align: center;
+}
+
 #projects {
 	text-align: center;
 	padding: 30px;
@@ -323,6 +327,10 @@ h2 {
 
 
 /* CONTACT */
+form {
+	max-width: 700px;
+	margin: 0 auto;
+}
 
 .inputs {
 	display: block;
@@ -509,6 +517,10 @@ footer p {
 
 	#course-certificate {
 		width: 95%;
+	}
+	
+	#contact p {
+		text-align: left;
 	}
 }
 
